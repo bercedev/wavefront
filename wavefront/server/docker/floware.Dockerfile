@@ -56,12 +56,6 @@ RUN chmod +x /app/scripts/floware-init.sh
 
 RUN uv sync --package floware --frozen --no-dev && \
     rm -rf /root/.cache/uv
-
-# Directory for cached spaCy / NLP models downloaded lazily at runtime
-ARG GUARDRAILS_MODEL_CACHE_DIR=/app/models/spacy
-ENV GUARDRAILS_MODEL_CACHE_DIR=${GUARDRAILS_MODEL_CACHE_DIR}
-RUN mkdir -p ${GUARDRAILS_MODEL_CACHE_DIR}
-
 # Create a non-root user and change ownership of the /app directory
 RUN useradd -m -u 1000 floware && \
     chown -R floware:floware /app
