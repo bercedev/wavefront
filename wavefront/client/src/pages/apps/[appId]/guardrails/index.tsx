@@ -415,6 +415,7 @@ const GuardrailsManagement: React.FC = () => {
               isEnabled={isEnabled}
               mode={mode}
               adapters={adapters}
+              stream={stream}
               piiGroups={piiEntities?.groups}
             />
           </div>

@@ -26,6 +26,15 @@ interface NavItem {
   alpha?: boolean;
 }
 
+interface NavItem {
+  id: string;
+  name: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  link: string;
+  description: string;
+  alpha?: boolean;
+}
+
 const navItems: NavItem[] = [
   {
     id: 'agents',
