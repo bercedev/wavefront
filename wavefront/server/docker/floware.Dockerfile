@@ -56,8 +56,9 @@ RUN chmod +x /app/scripts/floware-init.sh
 
 RUN uv sync --package floware --frozen --no-dev && \
     rm -rf /root/.cache/uv
-# Create a non-root user and change ownership of the /app directory
-RUN useradd -m -u 1000 floware && \
+# Create models cache directory and non-root user with proper ownership for mounted volumes
+RUN mkdir -p /app/models/spacy && \
+    useradd -m -u 1000 floware && \
     chown -R floware:floware /app
 
 USER floware
